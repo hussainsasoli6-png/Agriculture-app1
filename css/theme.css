@@ -1,0 +1,173 @@
+/* AgriQueue - dark purple theme (class names same as before, replace theme.css fully) */
+:root{
+  --color-primary:#8b5cf6;
+  --color-primary-dark:#6d28d9;
+  --color-primary-soft:#a78bfa;
+  --color-accent:#f9a825;
+  --color-pink:#e879f9;
+  --color-bg:#0b0613;
+  --color-card:rgba(255,255,255,.035);
+  --color-text:#f3eefc;
+  --color-muted:#a99cc4;
+  --color-line:rgba(139,92,246,.28);
+  --color-input:#07040d;
+  --color-danger:#ef4444;
+  --color-info:#60a5fa;
+  --color-ok:#34d399;
+  --font:"Segoe UI",system-ui,-apple-system,sans-serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0;min-height:100vh;color:var(--color-text);font-family:var(--font);line-height:1.5;
+  background:
+    radial-gradient(900px 500px at 8% -5%,rgba(124,58,237,.28),transparent 60%),
+    radial-gradient(800px 500px at 100% 20%,rgba(168,85,247,.14),transparent 60%),
+    var(--color-bg);
+  background-attachment:fixed
+}
+
+/* ---------- Navbar ---------- */
+.nav{
+  background:rgba(15,8,26,.85);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--color-line);
+  display:flex;flex-wrap:wrap;gap:6px 22px;align-items:center;padding:14px 32px;color:#fff
+}
+.nav b{display:flex;align-items:center;gap:12px;font-size:22px;font-weight:800;margin-right:auto;letter-spacing:-.3px}
+.nav b::before{
+  content:"";width:44px;height:44px;border-radius:12px;
+  background:linear-gradient(135deg,#8b5cf6,#6d28d9);box-shadow:0 6px 20px rgba(139,92,246,.45)
+}
+.nav a{color:var(--color-muted);cursor:pointer;padding:6px 2px;text-decoration:none;transition:color .2s}
+.nav a:hover{color:#fff}
+.nav a.on{color:#fff;border-bottom:2px solid var(--color-primary-soft)}
+
+/* ---------- Layout ---------- */
+.container{max-width:1100px;margin:0 auto;padding:36px 20px}
+.card{
+  background:var(--color-card);border:1px solid var(--color-line);border-radius:20px;padding:24px;margin-bottom:20px;
+  box-shadow:0 10px 40px rgba(0,0,0,.45),0 0 60px rgba(124,58,237,.08)
+}
+.card h2,.card h3{margin:0 0 14px;font-weight:600}
+.grid{display:grid;gap:16px}
+.grid-4{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.grid-2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+
+/* ---------- Page headings (optional helper classes) ---------- */
+.eyebrow{color:var(--color-primary-soft);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.page-title{font-size:30px;font-weight:800;margin:4px 0 6px}
+.page-sub,.hint{font-size:14px;color:var(--color-muted)}
+
+/* ---------- Forms ---------- */
+.label{display:block;font-size:14px;font-weight:600;margin:14px 0 6px;color:#d8ccee}
+.input{
+  width:100%;padding:14px 16px;border:1px solid var(--color-line);border-radius:12px;
+  background:var(--color-input);color:var(--color-text);font:inherit;outline:none;
+  transition:border-color .2s,box-shadow .2s
+}
+.input::placeholder{color:#6f6388}
+.input:focus{border-color:var(--color-primary);box-shadow:0 0 0 3px rgba(139,92,246,.35)}
+select.input option{background:#14091f;color:#fff}
+
+/* ---------- Buttons ---------- */
+.btn{
+  border:0;border-radius:12px;padding:12px 20px;cursor:pointer;font:inherit;font-weight:700;color:#fff;
+  transition:transform .15s,box-shadow .2s,filter .2s
+}
+.btn:hover:not(:disabled){transform:translateY(-1px);filter:brightness(1.1)}
+.btn-primary{background:linear-gradient(135deg,#8b5cf6,#6d28d9);box-shadow:0 8px 24px rgba(109,40,217,.45)}
+.btn-danger{background:linear-gradient(135deg,#ef4444,#b91c1c)}
+.btn-accent{background:var(--color-accent);color:#222}
+.btn-sm{padding:6px 12px;font-size:13px;border-radius:9px}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+
+/* demo account buttons on login page */
+.demo button{
+  margin:4px 6px 4px 0;border:0;border-radius:12px;padding:10px 16px;cursor:pointer;font:inherit;font-weight:700;color:#fff;
+  background:linear-gradient(135deg,#c026d3,#8b5cf6)
+}
+
+/* ---------- Tables ---------- */
+.scroll{overflow-x:auto}
+.table{width:100%;border-collapse:collapse;font-size:14px}
+.table th{color:var(--color-muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.6px}
+.table th,.table td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--color-line);vertical-align:middle}
+.table tr:hover td{background:rgba(139,92,246,.06)}
+
+/* ---------- Badges (pill, tinted + outlined) ---------- */
+.badge{
+  display:inline-block;padding:3px 12px;border-radius:99px;font-size:12px;font-weight:700;white-space:nowrap;
+  color:#cfc3e6;background:rgba(148,163,184,.15);border:1px solid rgba(148,163,184,.35)
+}
+.badge.booked,.badge.checked-in{color:var(--color-info);background:rgba(96,165,250,.14);border-color:rgba(96,165,250,.4)}
+.badge.waiting,.badge.delayed,.badge.recommended,.badge.payment-pending{color:#fbbf24;background:rgba(249,168,37,.14);border-color:rgba(249,168,37,.45)}
+.badge.weighing,.badge.quality-check,.badge.unloading{color:#d8b4fe;background:rgba(168,85,247,.18);border-color:rgba(168,85,247,.5)}
+.badge.completed,.badge.available{color:var(--color-ok);background:rgba(52,211,153,.13);border-color:rgba(52,211,153,.4)}
+.badge.cancelled,.badge.missed{color:#94a3b8;background:rgba(148,163,184,.12);border-color:rgba(148,163,184,.3)}
+.badge.rejected,.badge.full{color:#f87171;background:rgba(239,68,68,.14);border-color:rgba(239,68,68,.4)}
+.badge.farmer,.badge.admin,.badge.staff,.badge.inspector{color:#d8b4fe;background:rgba(139,92,246,.18);border-color:rgba(139,92,246,.55)}
+
+/* ---------- Dashboard stats ---------- */
+.stat{font-size:38px;font-weight:800;color:var(--color-primary-soft);line-height:1.1}
+.stat-l{font-size:14px;color:var(--color-muted);margin-top:4px}
+.grid-4 .card{margin-bottom:0}
+
+/* progress bars */
+.bar{
+  height:14px;border-radius:99px;min-width:4px;
+  background:linear-gradient(90deg,#7c3aed,#c084fc,#f0abfc)
+}
+
+/* ---------- Token card ---------- */
+.token-card{
+  border:2px dashed var(--color-primary);text-align:center;padding:24px;border-radius:20px;
+  background:var(--color-card);box-shadow:0 0 40px rgba(139,92,246,.18)
+}
+.token-card h1{margin:6px 0;font-size:44px;color:var(--color-primary-soft)}
+
+/* ---------- Messages ---------- */
+.msg-error{
+  color:#fca5a5;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);
+  border-radius:12px;padding:10px 14px;margin:10px 0
+}
+.msg-error:empty{padding:8px;min-height:30px}
+.msg-success{
+  color:#6ee7b7;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);
+  border-radius:12px;padding:10px 14px;margin:10px 0
+}
+
+/* ---------- Time slots ---------- */
+.slot{
+  cursor:pointer;border:1px solid var(--color-line);border-radius:16px;padding:16px;
+  background:rgba(255,255,255,.03);transition:border-color .2s,box-shadow .2s,transform .15s
+}
+.slot:hover:not(.off){border-color:var(--color-primary);transform:translateY(-2px)}
+.slot.sel{border:2px solid var(--color-primary);box-shadow:0 0 0 3px rgba(139,92,246,.3),0 8px 30px rgba(139,92,246,.25)}
+.slot.off{opacity:.45;cursor:not-allowed}
+.slot b{font-size:18px}
+
+/* ---------- Mobile ---------- */
+@media(max-width:640px){
+  .nav{padding:12px 16px}
+  .container{padding:20px 12px}
+  .card{padding:16px;border-radius:16px}
+  .page-title{font-size:24px}
+}
+
+/* ---------- Extra classes used by the new api.js ---------- */
+.page-head{margin-bottom:24px}
+.page-head .page-sub{margin:0}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.grid-6{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin-bottom:20px}
+.grid-6 .card{margin-bottom:0}
+.nav-user{color:#fff;font-size:17px}
+.login-card{text-align:left}
+.login-logo{width:64px;height:64px;border-radius:18px;margin:0 auto 14px;background:linear-gradient(135deg,#8b5cf6,#6d28d9);box-shadow:0 8px 28px rgba(139,92,246,.5)}
+.brand-text{margin:0 0 4px;text-align:center;font-size:38px;font-weight:800;background:linear-gradient(90deg,#c4b5fd,#e879f9);-webkit-background-clip:text;background-clip:text;color:transparent}
+.card-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+.card-head h3{margin:0}
+.bar-row{display:grid;grid-template-columns:130px 1fr;gap:14px;align-items:center;margin:12px 0}
+.bar-track{height:14px;background:rgba(255,255,255,.07);border-radius:99px;overflow:hidden}
+@media(max-width:640px){.bar-row{grid-template-columns:100px 1fr}}
